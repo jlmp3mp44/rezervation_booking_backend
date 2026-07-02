@@ -100,4 +100,65 @@ public class HorovodProperties {
         }
         return false;
     }
+
+    private final Oauth oauth = new Oauth();
+    private final Jwt jwt = new Jwt();
+
+    public Oauth getOauth() {
+        return oauth;
+    }
+
+    public Jwt getJwt() {
+        return jwt;
+    }
+
+    public static class Oauth {
+        private final Google google = new Google();
+
+        public Google getGoogle() {
+            return google;
+        }
+
+        public static class Google {
+            private String clientId;
+            private String clientSecret;
+            private String redirectUri;
+
+            public String getClientId() {
+                return clientId;
+            }
+
+            public void setClientId(String clientId) {
+                this.clientId = clientId;
+            }
+
+            public String getClientSecret() {
+                return clientSecret;
+            }
+
+            public void setClientSecret(String clientSecret) {
+                this.clientSecret = clientSecret;
+            }
+
+            public String getRedirectUri() {
+                return redirectUri;
+            }
+
+            public void setRedirectUri(String redirectUri) {
+                this.redirectUri = redirectUri;
+            }
+        }
+    }
+
+    public static class Jwt {
+        private String secret;
+
+        public String getSecret() {
+            return secret;
+        }
+
+        public void setSecret(String secret) {
+            this.secret = secret;
+        }
+    }
 }
